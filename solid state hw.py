@@ -3,15 +3,15 @@ from sympy import *
 import matplotlib.pyplot as plt
 import math
 #1
-a=2.464 #lattice constant
+a=1.42
 primitive_v1=np.array([
-    [a*np.sqrt(3)/2],
-    [1/2*a]
+    [3/2*a],
+    [a*np.sqrt(3)/2]
 ],dtype=np.float64)
 
 primitive_v2=np.array([
-    [a*np.sqrt(3)/2],
-    [-1/2*a]
+    [3/2*a],
+    [-a*np.sqrt(3)/2]
 ],dtype=np.float64)
 
 
@@ -40,7 +40,6 @@ print("b2="+str(reciprocal_v2))
 
 #2
 repeatition=10
-a=2.464
 
 reciprocal_vectors=np.array([
     [],
@@ -75,13 +74,13 @@ reciprocal_draw()#原點放大後有六角形1st zone
 #3
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
-ax.set_xlim(-1, 1)
-ax.set_ylim(-1, 1)
+ax.set_xlim(-2, 2)
+ax.set_ylim(-2, 2)
 plt.title("E versus k")
 epsilon=0
 r=3
-k_x=np.linspace(-1,1,1000)
-k_y=np.linspace(-1,1,1000)
+k_x=np.linspace(-2,2,4000)
+k_y=np.linspace(-2,2,4000)
 kx,ky=np.meshgrid(k_x,k_y)
 E_plus=epsilon+r*np.sqrt(3+2*np.cos(np.sqrt(3)*ky*a)+4*np.cos(np.sqrt(3)*ky*a/2)*np.cos(3*kx*a/2))
 E_minus=epsilon-r*np.sqrt(3+2*np.cos(np.sqrt(3)*ky*a)+4*np.cos(np.sqrt(3)*ky*a/2)*np.cos(3*kx*a/2))
